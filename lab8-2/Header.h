@@ -22,6 +22,7 @@ class uni
 	T* pointer = nullptr;
 	bool flag = true;
 public:
+	uni();
 	uni(T* p);
 	uni(uni& copy);
 	uni(uni&& copy);
@@ -29,8 +30,32 @@ public:
 	T* get() const;
 	T& operator*();
 	T* operator->();
-	T& operator = (uni& copy);
+	uni<T>& operator = (uni& copy);
+	uni<T>& operator = (uni&& copy);
 };
 
-template<typename U, typename T, typename...Args>
-U CreateObject(T* newT, const Args& ... args);
+template<class T>
+class share
+{
+	T* pointer = nullptr;
+	int C;
+	int* counter=&C;
+public:
+	share();
+	share(T* p);
+	share(share& copy);
+	share(share&& copy);
+	~share();
+	int getC();
+	T* get() const;
+	T& operator*();
+	T* operator->();
+	share<T>& operator = (share& copy);
+	share<T>& operator = (share&& copy);
+};
+
+template<typename T, typename...Args>
+uni<T> createUni(const Args& ... args);
+
+template<typename T, typename...Args>
+share<T> createShare(const Args& ... args);

@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="func.cpp" />
+    <ClCompile Include="share.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="uni.cpp" />
   </ItemGroup>
