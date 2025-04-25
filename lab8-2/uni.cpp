@@ -31,7 +31,7 @@ uni<T>::uni(uni&& copy) {
 
 template<class T>
 uni<T>::~uni() {
-    std::cout << "Destructor \t" << this << std::endl;
+    std::cout << "Destructor uni \t" << this << std::endl;
     if (pointer != nullptr) {
         std::cout << "with delete \t" << pointer << std::endl;
         delete pointer;
@@ -52,18 +52,6 @@ template<class T>
 T* uni<T>::operator -> () {
     return pointer;
 };
-
-template<class T>
-uni<T>& uni<T>::operator = (uni& copy) {
-    if (this != &copy && flag == true) {
-        pointer = copy.pointer;
-        flag = false;
-    }
-    else {
-        std::cout << "Copy unavailable" << std::endl;
-    }
-    return *this;
-}
 
 template<class T>
 uni<T>& uni<T>::operator = (uni&& copy) {

@@ -30,10 +30,10 @@ public:
 	T* get() const;
 	T& operator*();
 	T* operator->();
-	uni<T>& operator = (uni& copy);
+	uni<T>& operator = (const uni& copy) = delete;
 	uni<T>& operator = (uni&& copy);
 };
-
+//= delete
 template<class T>
 class share
 {

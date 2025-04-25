@@ -18,7 +18,7 @@ share<T>::share(share& copy) {
     if (this != &copy) {
         pointer = copy.pointer;
         counter = copy.counter;
-        *counter++;
+        *counter+=1;
     }
 }
 
@@ -34,7 +34,7 @@ share<T>::share(share&& copy) {
 
 template<class T>
 share<T>::~share() {
-    std::cout << "Destructor \t" << this << std::endl;
+    std::cout << "Destructor share \t" << this << std::endl;
     if (pointer != nullptr) {
         if (*counter == 1) {
             std::cout << "with delete \t" << pointer << std::endl;
