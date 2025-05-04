@@ -24,7 +24,7 @@ class uni
 public:
 	uni();
 	uni(T* p);
-	uni(uni& copy);
+	//uni(uni<T> N) = delete;
 	uni(uni&& copy);
 	~uni();
 	T* get() const;

@@ -3,14 +3,14 @@
 template<class T>
 share<T>::share() {
     *counter = 0;
-    std::cout << "Constructor\t" << this << std::endl;
+    std::cout << "Constructor share\t" << this << std::endl;
 };
 
 template<class T>
 share<T>::share(T* p) {
     *counter = 1;
     pointer = p;
-    std::cout << "Constructor\t" << this << std::endl;
+    std::cout << "Constructor share\t" << this << std::endl;
 };
 
 template<class T>

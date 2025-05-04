@@ -3,21 +3,14 @@
 
 template<class T>
 uni<T>::uni() {
-    std::cout << "Constructor\t" << this << std::endl;
+    std::cout << "Constructor uni\t" << this << std::endl;
 };
 
 template<class T>
 uni<T>::uni(T* p) {
-    std::cout << "Constructor\t" << this << std::endl;
+    std::cout << "Constructor uni\t" << this << std::endl;
     pointer = p;
 };
-
-template<class T>
-uni<T>::uni(uni& copy) {
-    if (this != &copy) {
-        std::cout << "Copy unavailable" << std::endl;
-    }
-}
 
 template<class T>
 uni<T>::uni(uni&& copy) {
@@ -58,6 +51,7 @@ uni<T>& uni<T>::operator = (uni&& copy) {
     if (this != &copy) {
         std::cout << "Moving operator:\n";
         std::cout << "Move from:\t" << &copy << "\tto:\t" << this << std::endl;
+        delete pointer;
         pointer = copy.pointer;
         copy.pointer = nullptr;
     }

@@ -46,6 +46,8 @@ int main() {
 	share1->print();
 	share2->print();
 	std::cout << "\n\nThe end............................\n\n\n\n";
+	
+	
 	auto share4 = createShare<pc>("name4", 7000);
 	std::cout << share1.getC() << std::endl;
 	{
